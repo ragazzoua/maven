@@ -11,10 +11,27 @@ public class TestSample {
 
         WebDriver driver = new ChromeDriver();
         /*driver.get("https://mail.google.com");*/
+        driver.manage().window().maximize();
         driver.navigate().to("https://mail.google.com");
-        driver.getCurrentUrl();
+
+        String actualTitle = driver.getTitle();
+        String expectedTitle = "Gmail";
+
+
+        if (actualTitle.equals(expectedTitle)) {
+            System.out.println("Test passes");
+            System.out.println(driver.getTitle());
+        } else {
+            System.out.println("Test fails");
+            System.out.println(driver.getTitle());
+        }
+        driver.quit();
+
+
+
+        /*driver.getCurrentUrl();
         System.out.println(driver.getCurrentUrl());
-        driver.close();
+        driver.close();*/
 
 
     }
