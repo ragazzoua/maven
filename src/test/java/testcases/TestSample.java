@@ -1,6 +1,9 @@
 package testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
@@ -10,20 +13,15 @@ public class TestSample {
     public static void main(String[] args) {
 
         WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.navigate().to("https://www.google.com.ua/");
-
-        String actualTitle = driver.getTitle();
-        String expectedTitle = "Gmail";
-
-
-        if (actualTitle.equals(expectedTitle)) {
-            System.out.println("Test passes");
-            System.out.println(driver.getTitle());
-        } else {
-            System.out.println("Test fails");
-            System.out.println(driver.getTitle());
-        }
+        WebElement search = driver.findElement(By.id("lst-ib"));
+        search.click();
+        search.sendKeys("hello");
+        search.sendKeys(Keys.ENTER);
         driver.quit();
+
+
+
+
     }
 }
