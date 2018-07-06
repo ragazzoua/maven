@@ -16,7 +16,7 @@ public class TestSample {
         driver.navigate().to("https://www.google.com.ua/");
         WebElement search = driver.findElement(By.id("lst-ib"));
         search.click();
-        search.sendKeys("hello");
+        search.sendKeys("hello" + "beatles");
         search.sendKeys(Keys.ENTER);
         driver.quit();
 
